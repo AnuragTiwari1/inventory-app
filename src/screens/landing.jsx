@@ -1,6 +1,7 @@
 import React from 'react';
-import { Text } from 'react-native';
+import { Text, View } from 'react-native';
+import styles from './Auth/styles';
 
-const Landing = () => <Text>Landing Page</Text>;
+const Landing = () => <View style={styles.container} />;
 
 export default Landing;
