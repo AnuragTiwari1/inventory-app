@@ -31,6 +31,7 @@ module.exports = {
     'import/no-unresolved': 0,
     'react/prop-types': [1, {skipUndeclared: true}],
     'react/display-name': 0,
+    'no-underscore-dangle': 1,
     'prettier/prettier': [
       'error',
       {
