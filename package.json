@@ -14,10 +14,13 @@
     "fonts": "rnpm link assets"
   },
   "dependencies": {
+    "@react-native-community/async-storage": "^1.3.3",
+    "axios": "^0.18.0",
     "metro-config": "^0.53.1",
     "native-base": "^2.12.1",
     "react": "16.8.3",
     "react-native": "0.59.1",
+    "react-native-background-timer": "^2.1.1",
     "react-native-elements": "^1.1.0",
     "react-native-gesture-handler": "^1.1.0",
     "react-native-svg": "^9.3.7",

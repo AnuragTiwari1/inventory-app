@@ -11,10 +11,11 @@ import Theme from '../../Theme';
 import { emailTest, passwordTest } from '../../utils/validation';
 import ValidationFeild from '../../component/validationFeild';
 import useField from '../../hooks/useFeilds';
+import Auth from '../../utils/Auth';
 
 const wave = require('../../../assets/img/wave.png');
 
-export default () => {
+export default props => {
   const { heightPercentageToDP, widthPercentageToDP } = useDimension();
   const userProfile = () => (
     <Profile width={widthPercentageToDP(30)} height={widthPercentageToDP(30)} />
@@ -79,7 +80,13 @@ export default () => {
           Promise.all([emailField.validate(), passwordField.validate()]).then(
             ([isEmailValid, isPasswordValid]) => {
               if (isEmailValid && isPasswordValid) {
-                console.log('every thing ok>>>>>>>>>>>>>>>please proceed');
+                Auth.login(
+                  {
+                    email: emailField.value,
+                    password: passwordField.value,
+                  },
+                  () => props.navigation.navigate('Landing')
+                );
               }
             }
           );
