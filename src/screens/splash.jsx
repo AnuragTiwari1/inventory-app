@@ -1,13 +1,21 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, ProgressBarAndroid } from 'react-native';
 import Auth from '../utils/Auth';
 
 export default props => (
-  <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+  <View style={{ flex: 1, justifyContent: 'flex-start', alignItems: 'center' }}>
+    <ProgressBarAndroid
+      style={{ width: '100%', paddingTop: 0, marginTop: 0 }}
+      styleAttr="Horizontal"
+      color="#2196F3"
+      indeterminate
+    />
     {Auth.init(
-      () => props.navigation.navigate('Landing'),
-      () => props.navigation.navigate('Auth')
+      () => setTimeout(() => props.navigation.navigate('Landing'), 2000),
+      () => setTimeout(() => props.navigation.navigate('Auth'), 2000)
     )}
-    <Text>This is Splash Screen</Text>
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      <Text>This is Splash Screen</Text>
+    </View>
   </View>
 );

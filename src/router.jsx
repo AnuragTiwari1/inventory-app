@@ -117,7 +117,7 @@ const AppRoute = createAppContainer(
     },
     {
       defaultNavigationOptions: { ...defaultHeaderObject },
-      initialRouteName: 'Landing',
+      initialRouteName: 'SplashScreen',
     }
   )
 );
