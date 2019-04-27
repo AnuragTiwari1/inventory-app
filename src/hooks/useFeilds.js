@@ -7,6 +7,8 @@ const useField = (initialValue: string, validation: (v: string) => string) => {
   const [dirty, dispatchDirty] = useState(false);
 
   const onBlur = () => {
+    console.log('on Blur is called');
+
     dispatchDirty(true);
     dispatchError(validation(value));
   };

@@ -1,8 +1,8 @@
 // @flow
-import React from 'react';
-import { Text, View, Image } from 'react-native';
+import React, { useRef } from 'react';
+import { View, Image } from 'react-native';
 import { Avatar } from 'react-native-elements';
-import { Form, Item, Label, Input, Button } from 'native-base';
+import { Form, Button } from 'native-base';
 import styles from './styles';
 import useDimension from '../../hooks/useDimension';
 import Profile from '../../../assets/img/engineer.svg';
@@ -20,8 +20,8 @@ export default props => {
   const userProfile = () => (
     <Profile width={widthPercentageToDP(30)} height={widthPercentageToDP(30)} />
   );
-  let passwordRef;
-  let emailRef;
+  let passwordRef = useRef(null);
+  let emailRef = useRef(null);
   const emailField = useField('', emailTest);
   const passwordField = useField('', passwordTest);
   return (
@@ -41,8 +41,8 @@ export default props => {
           label="Email"
           returnKeyType="next"
           keyboardType="email-address"
-          getRef={input => {
-            emailRef = input;
+          getRef={c => {
+            emailRef = c;
           }}
           onSubmitEditing={() => {
             passwordRef._root.focus();
@@ -56,8 +56,8 @@ export default props => {
           field={passwordField}
           label="Password"
           secureTextEntry
-          getRef={input => {
-            passwordRef = input;
+          getRef={c => {
+            passwordRef = c;
           }}
           onClear={() => {
             passwordRef._root.clear();
