@@ -32,10 +32,9 @@ export default props => {
       />
       <Form
         style={{
-          width: '70%',
+          width: '90%',
           alignSelf: 'center',
           marginHorizontal: widthPercentageToDP(15),
-          backgroundColor: 'blue',
         }}>
         <ValidationFeild
           field={emailField}
@@ -107,8 +106,3 @@ export default props => {
     </View>
   );
 };
-// export default class Example extends React.Component {
-//   render() {
-//     return <Text>Hi Bye Gone</Text>;
-//   }
-// }
