@@ -8,6 +8,6 @@ export default props => (
       () => props.navigation.navigate('Landing'),
       () => props.navigation.navigate('Auth')
     )}
-    <Text>This is Splash Screen</Text>
+    <Text>This is Splash Screen Logo</Text>
   </View>
 );
