@@ -1,7 +1,6 @@
 // @flow
 import React from 'react';
 import { Input, Item, Label, Icon } from 'native-base';
-import useField from '../hooks/useFeilds';
 import Theme from '../Theme';
 import AppText from '../common/AppText';
 

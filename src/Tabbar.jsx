@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import Touchable from 'react-native-platform-touchable';
 import ActionButton from 'react-native-circular-action-menu';
-import Icon from 'react-native-vector-icons/Ionicons';
+import { Icon } from 'native-base';
 import Theme from './Theme';
 
 const S = StyleSheet.create({
@@ -23,6 +23,11 @@ const S = StyleSheet.create({
     alignItems: 'center',
     padding: 5,
   },
+  actionButtonIcon: {
+    fontSize: 20,
+    height: 22,
+    color: 'white',
+  },
 });
 
 const TabBar = props => {
@@ -38,7 +43,6 @@ const TabBar = props => {
   } = props;
 
   const { routes, index: activeRouteIndex } = navigation.state;
-  console.log(navigation.state);
   const tabs = routes.filter(({ routeName }) => {
     if (
       routeName === 'AddOrder' ||
@@ -49,12 +53,6 @@ const TabBar = props => {
     }
     return true;
   });
-  console.log(
-    'routes>>>>>>>>>>>>>>>>',
-    routes,
-    tabs.slice(0, 2),
-    tabs.slice(2, 4)
-  );
 
   return (
     <View style={S.container}>
@@ -80,7 +78,29 @@ const TabBar = props => {
         );
       })}
       <Touchable style={S.fab} onPress={() => {}} onLongPress={() => {}}>
-        <ActionButton buttonColor="rgba(231,76,60,1)" />
+        <ActionButton
+          buttonColor="rgba(231,76,60,1)"
+          startDegree={210}
+          endDegree={330}>
+          <ActionButton.Item
+            buttonColor="#9b59b6"
+            title="New Task"
+            onPress={() => console.log('notes tapped!')}>
+            <Icon name="setting" type="AntDesign" style={S.actionButtonIcon} />
+          </ActionButton.Item>
+          <ActionButton.Item
+            buttonColor="#3498db"
+            title="Notifications"
+            onPress={() => {}}>
+            <Icon name="setting" type="AntDesign" style={S.actionButtonIcon} />
+          </ActionButton.Item>
+          <ActionButton.Item
+            buttonColor="#1abc9c"
+            title="All Tasks"
+            onPress={() => {}}>
+            <Icon name="setting" type="AntDesign" style={S.actionButtonIcon} />
+          </ActionButton.Item>
+        </ActionButton>
       </Touchable>
       {tabs.slice(2, 4).map((route, routeIndex) => {
         const isRouteActive = routeIndex + 2 === activeRouteIndex;
