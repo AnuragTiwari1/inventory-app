@@ -1,9 +1,14 @@
+// @flow
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import Touchable from 'react-native-platform-touchable';
 import ActionButton from 'react-native-circular-action-menu';
 import { Icon } from 'native-base';
 import Theme from './Theme';
+import NewOrder from '../assets/img/addOrder.svg';
+import NewProduct from '../assets/img/manufacture.svg';
+import AppText from './common/AppText';
+import getFontStyleObject from './utils/font';
 
 const S = StyleSheet.create({
   container: {
@@ -27,6 +32,9 @@ const S = StyleSheet.create({
     fontSize: 20,
     height: 22,
     color: 'white',
+  },
+  text: {
+    color: Theme.gray.light,
   },
 });
 
@@ -80,25 +88,59 @@ const TabBar = props => {
       <Touchable style={S.fab} onPress={() => {}} onLongPress={() => {}}>
         <ActionButton
           buttonColor="rgba(231,76,60,1)"
-          startDegree={210}
-          endDegree={330}>
+          startDegree={220}
+          endDegree={320}>
           <ActionButton.Item
             buttonColor="#9b59b6"
             title="New Task"
             onPress={() => console.log('notes tapped!')}>
-            <Icon name="setting" type="AntDesign" style={S.actionButtonIcon} />
+            <Icon name="adduser" type="AntDesign" style={S.actionButtonIcon} />
+            <View
+              style={{
+                position: 'absolute',
+                top: 30,
+                alignItems: 'center',
+              }}>
+              <AppText style={S.text}>user</AppText>
+            </View>
           </ActionButton.Item>
           <ActionButton.Item
             buttonColor="#3498db"
             title="Notifications"
             onPress={() => {}}>
-            <Icon name="setting" type="AntDesign" style={S.actionButtonIcon} />
+            <NewOrder
+              style={{
+                width: 30,
+                height: 30,
+              }}
+            />
+            <View
+              style={{
+                position: 'absolute',
+                top: 30,
+                alignItems: 'center',
+              }}>
+              <AppText style={S.text}>order</AppText>
+            </View>
           </ActionButton.Item>
           <ActionButton.Item
             buttonColor="#1abc9c"
             title="All Tasks"
             onPress={() => {}}>
-            <Icon name="setting" type="AntDesign" style={S.actionButtonIcon} />
+            <NewProduct
+              style={{
+                width: 30,
+                height: 30,
+              }}
+            />
+            <View
+              style={{
+                position: 'absolute',
+                top: 30,
+                alignItems: 'center',
+              }}>
+              <AppText style={S.text}>product</AppText>
+            </View>
           </ActionButton.Item>
         </ActionButton>
       </Touchable>
