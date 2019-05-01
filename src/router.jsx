@@ -64,12 +64,12 @@ const AppRoute = createAppContainer(
                 title: 'Home',
               },
             },
-            LineChart: {
-              screen: AddUser,
+            History: {
+              screen: Landing,
               navigationOptions: {
                 tabBarIcon: ({ tintColor }) => (
                   <Icon
-                    name="setting"
+                    name="clockcircleo"
                     type="AntDesign"
                     style={{ color: tintColor }}
                   />
@@ -134,13 +134,13 @@ const AppRoute = createAppContainer(
                 navigationDisabled: true,
               },
             },
-            History: {
+            Track: {
               screen: Landing,
               navigationOptions: {
                 tabBarIcon: ({ tintColor }) => (
                   <Icon
-                    name="clockcircleo"
-                    type="AntDesign"
+                    name="satellite-variant"
+                    type="MaterialCommunityIcons"
                     style={{ color: tintColor }}
                   />
                 ),
@@ -184,7 +184,7 @@ const AppRoute = createAppContainer(
     },
     {
       defaultNavigationOptions: { ...defaultHeaderObject },
-      initialRouteName: 'Landing',
+      initialRouteName: 'AddUser',
     }
   )
 );
