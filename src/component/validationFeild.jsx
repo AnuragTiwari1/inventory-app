@@ -1,14 +1,13 @@
 import React from 'react';
 import { Input, Icon } from 'react-native-elements';
 import Theme from '../Theme';
-import AppText from '../common/AppText';
 
 type propTypes = {
   field: any,
   onClear: () => void,
 };
 
-const Field = React.forwardRef((props, ref) => {
+const Field = React.forwardRef((props: propTypes, ref) => {
   const { field, onClear, ...rest } = props;
   return (
     <Input
