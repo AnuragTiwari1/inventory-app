@@ -6,12 +6,12 @@ import {
   createBottomTabNavigator,
 } from 'react-navigation';
 import { Icon } from 'native-base';
-import Svg, { Path } from 'react-native-svg';
 import Header from './component/Header';
 import Auth from './screens/Auth';
 import Splash from './screens/splash';
 import Landing from './screens/landing';
 import TabBar from './Tabbar';
+import AddUser from './screens/addUser';
 
 const defaultHeaderObject = {
   header: ({ scene }) => <Header scene={scene} />,
@@ -113,6 +113,9 @@ const AppRoute = createAppContainer(
             },
           }
         ),
+      },
+      AddUser: {
+        screen: AddUser,
       },
     },
     {

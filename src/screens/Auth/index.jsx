@@ -1,7 +1,7 @@
 // @flow
 import React, { useRef } from 'react';
 import { View, Image } from 'react-native';
-import { Avatar } from 'react-native-elements';
+import { Avatar, Icon } from 'react-native-elements';
 import { Form, Button } from 'native-base';
 import styles from './styles';
 import useDimension from '../../hooks/useDimension';
@@ -20,8 +20,8 @@ export default props => {
   const userProfile = () => (
     <Profile width={widthPercentageToDP(30)} height={widthPercentageToDP(30)} />
   );
-  let passwordRef = useRef(null);
-  let emailRef = useRef(null);
+  const passwordRef = useRef(null);
+  const emailRef = useRef(null);
   const emailField = useField('', emailTest);
   const passwordField = useField('', passwordTest);
   return (
@@ -38,30 +38,29 @@ export default props => {
         }}>
         <ValidationFeild
           field={emailField}
-          label="Email"
+          placeholder="Email"
+          leftIcon={<Icon name="newsletter" type="entypo" />}
           returnKeyType="next"
           keyboardType="email-address"
-          getRef={c => {
-            emailRef = c;
-          }}
+          ref={emailRef}
           onSubmitEditing={() => {
-            passwordRef._root.focus();
+            passwordRef.current.focus();
           }}
+          blurOnSubmit={false}
           onClear={() => {
-            emailRef._root.clear();
-            emailRef._root.focus();
+            emailRef.current.clear();
+            emailRef.current.focus();
           }}
         />
         <ValidationFeild
           field={passwordField}
-          label="Password"
+          placeholder="Password"
+          leftIcon={<Icon name="lock" type="entypo" />}
           secureTextEntry
-          getRef={c => {
-            passwordRef = c;
-          }}
+          ref={passwordRef}
           onClear={() => {
-            passwordRef._root.clear();
-            passwordRef._root.focus();
+            passwordRef.current.clear();
+            passwordRef.current.focus();
           }}
         />
         <AppText

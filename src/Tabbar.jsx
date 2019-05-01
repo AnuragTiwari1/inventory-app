@@ -8,7 +8,6 @@ import Theme from './Theme';
 import NewOrder from '../assets/img/addOrder.svg';
 import NewProduct from '../assets/img/manufacture.svg';
 import AppText from './common/AppText';
-import getFontStyleObject from './utils/font';
 
 const S = StyleSheet.create({
   container: {
@@ -94,7 +93,12 @@ const TabBar = props => {
             buttonColor="#9b59b6"
             title="New Task"
             onPress={() => console.log('notes tapped!')}>
-            <Icon name="adduser" type="AntDesign" style={S.actionButtonIcon} />
+            <Icon
+              name="adduser"
+              type="AntDesign"
+              style={S.actionButtonIcon}
+              onPress={() => console.log('clicked Add user')}
+            />
             <View
               style={{
                 position: 'absolute',
@@ -107,7 +111,7 @@ const TabBar = props => {
           <ActionButton.Item
             buttonColor="#3498db"
             title="Notifications"
-            onPress={() => {}}>
+            onPress={() => console.log('clicked order')}>
             <NewOrder
               style={{
                 width: 30,
@@ -126,7 +130,7 @@ const TabBar = props => {
           <ActionButton.Item
             buttonColor="#1abc9c"
             title="All Tasks"
-            onPress={() => {}}>
+            onPress={() => console.log('clicked product')}>
             <NewProduct
               style={{
                 width: 30,
