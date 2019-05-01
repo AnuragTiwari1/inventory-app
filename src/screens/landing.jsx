@@ -1,6 +1,6 @@
 import React from 'react';
-import { Text, View } from 'react-native';
-import { Card, Body, CardItem, Badge } from 'native-base';
+import { View } from 'react-native';
+import { Card, CardItem, Badge } from 'native-base';
 import AppText from '../common/AppText';
 import Theme from '../Theme';
 import useDimension from '../hooks/useDimension';

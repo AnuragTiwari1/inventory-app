@@ -2,6 +2,8 @@ import React from 'react';
 import { withNavigation } from 'react-navigation';
 import { View, StyleSheet, Animated } from 'react-native';
 import AppText from '../common/AppText';
+import Theme from '../Theme';
+import useDimension from '../hooks/useDimension';
 
 const styles = StyleSheet.create({
   background: {
@@ -31,34 +33,42 @@ const styles = StyleSheet.create({
   },
 });
 
-class Header extends React.PureComponent {
-  render() {
-    const { scene, navigation, backgroundStyle } = this.props;
-    // Get properties from static object navigationOptions
-    const navigationOptions = scene ? scene.descriptor.options : {};
-    const { title, headerLeft, headerRight } = navigationOptions;
-    const routeName = navigation ? navigation.state.routeName : '';
-    const routeIndex = scene ? scene.index : 0;
+const Header = props => {
+  const { scene, navigation, backgroundStyle } = props;
+  // Get properties from static object navigationOptions
+  const navigationOptions = scene ? scene.descriptor.options : {};
+  const { title, headerLeft, headerRight } = navigationOptions;
+  const routeName = '';
+  const routeIndex = scene ? scene.index : 0;
+  const { widthPercentageToDP, heightPercentageToDP } = useDimension();
+  console.log('Scene Kya hai>>>>>>>>>>>>>', scene);
 
-    return (
-      <View style={styles.container}>
-        <Animated.View style={[styles.background, backgroundStyle]} />
-        <View style={styles.headerWrapper}>
-          <View style={styles.leftContainer}>
-            {headerLeft ? headerLeft() : null}
-          </View>
-          <View style={styles.titleContainer}>
-            <AppText numberOfLines={1} type="header">
-              {title || routeName}
-            </AppText>
-          </View>
-          <View style={styles.rightContainer}>
-            {headerRight ? headerRight() : null}
-          </View>
+  return (
+    <View
+      style={{
+        width: widthPercentageToDP(100),
+        height: heightPercentageToDP(10),
+        backgroundColor: 'pink',
+      }}>
+      <Animated.View style={[styles.background, backgroundStyle]} />
+      <View style={styles.headerWrapper}>
+        <View style={styles.leftContainer}>
+          {headerLeft ? headerLeft() : null}
+        </View>
+        <View style={styles.titleContainer}>
+          <AppText
+            numberOfLines={1}
+            type="header"
+            style={{ color: Theme.gray.dark }}>
+            {title || routeName}
+          </AppText>
+        </View>
+        <View style={styles.rightContainer}>
+          {headerRight ? headerRight() : null}
         </View>
       </View>
-    );
-  }
-}
+    </View>
+  );
+};
 
 export default withNavigation(Header);

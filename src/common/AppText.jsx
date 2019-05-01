@@ -4,11 +4,11 @@ import { Text, StyleSheet } from 'react-native';
 import getFontStyleObject from '../utils/font';
 import Theme from '../Theme';
 
-// type PropTypes = {
-//   type?: string,
-//   children?: any,
-//   style?: any,
-// };
+type PropTypes = {
+  type?: string,
+  children?: any,
+  style?: any,
+};
 
 const styles = StyleSheet.create({
   text: {
@@ -17,7 +17,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const AppText = props => {
+const AppText = (props: PropTypes) => {
   const { children, style, type, ...rest } = props;
 
   const textStyles = [styles.text, Theme.typography[type], style];
@@ -29,10 +29,10 @@ const AppText = props => {
   );
 };
 
-// AppText.defaultProps = {
-//   type: 'body',
-//   children: null,
-//   style: null,
-// };
+AppText.defaultProps = {
+  type: 'body',
+  children: null,
+  style: null,
+};
 
 export default AppText;
