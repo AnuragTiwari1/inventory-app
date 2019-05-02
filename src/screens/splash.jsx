@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, ProgressBarAndroid } from 'react-native';
 import Auth from '../utils/Auth';
 
-export default props => (
+const Splash = props => (
   <View style={{ flex: 1, justifyContent: 'flex-start', alignItems: 'center' }}>
     <ProgressBarAndroid
       style={{ width: '100%', paddingTop: 0, marginTop: 0 }}
@@ -19,3 +19,8 @@ export default props => (
     </View>
   </View>
 );
+Splash.navigationOptions = ({ navigation }) => ({
+  header: null,
+});
+
+export default Splash;

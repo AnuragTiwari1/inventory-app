@@ -1,4 +1,4 @@
-package com.starter;
+package com.young;
 
 import android.app.Application;
 import com.horcrux.svg.SvgPackage;

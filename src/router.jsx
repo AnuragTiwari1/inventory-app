@@ -184,7 +184,7 @@ const AppRoute = createAppContainer(
     },
     {
       defaultNavigationOptions: { ...defaultHeaderObject },
-      initialRouteName: 'AddUser',
+      initialRouteName: 'SplashScreen',
     }
   )
 );
