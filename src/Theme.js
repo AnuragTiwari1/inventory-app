@@ -44,7 +44,7 @@ Theme.gray = {
 };
 
 const colors = {
-  primary: '#00d474',
+  primary: '#0984e3',
   primaryVariant: '#00af60',
   transparentBlack: 'rgba(0,0,0,0.6)',
 
@@ -52,6 +52,9 @@ const colors = {
   danger: '#dc3545',
   warning: '#ffc107',
   info: '#17a2b8',
+  phase1: '#17a2b8',
+  phase2: '#ffc107',
+  phase3: '#dc3545',
 };
 
 Theme.colors = {
@@ -105,13 +108,13 @@ Theme.typography = {
     fontSize: 15,
   },
   caption1: {
-    fontSize: 14,
+    fontSize: 25,
   },
   caption2: {
-    fontSize: 12,
+    fontSize: 15,
   },
   caption3: {
-    fontSize: 10,
+    fontSize: 8,
   },
 };
 

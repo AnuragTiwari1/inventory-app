@@ -48,7 +48,7 @@ const Header = props => {
       style={{
         width: widthPercentageToDP(100),
         height: heightPercentageToDP(10),
-        backgroundColor: 'pink',
+        backgroundColor: Theme.colors.primary,
       }}>
       <Animated.View style={[styles.background, backgroundStyle]} />
       <View style={styles.headerWrapper}>
@@ -56,10 +56,7 @@ const Header = props => {
           {headerLeft ? headerLeft() : null}
         </View>
         <View style={styles.titleContainer}>
-          <AppText
-            numberOfLines={1}
-            type="header"
-            style={{ color: Theme.gray.dark }}>
+          <AppText numberOfLines={1} type="title1">
             {title || routeName}
           </AppText>
         </View>

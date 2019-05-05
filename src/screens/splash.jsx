@@ -5,7 +5,7 @@ import Auth from '../utils/Auth';
 const Splash = props => (
   <View style={{ flex: 1, justifyContent: 'flex-start', alignItems: 'center' }}>
     <ProgressBarAndroid
-      style={{ width: '100%', paddingTop: 0, marginTop: 0 }}
+      style={{ width: '100%', height: 25, paddingTop: 0, marginTop: -10 }}
       styleAttr="Horizontal"
       color="#2196F3"
       indeterminate

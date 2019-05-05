@@ -14,6 +14,7 @@ import Landing from './screens/landing';
 import AddUser from './screens/addUser';
 import NewOrder from '../assets/img/addOrder.svg';
 import NewProduct from '../assets/img/manufacture.svg';
+import JobDetails from './screens/jobDetails';
 
 const defaultHeaderObject = {
   header: ({ scene, navigation }) => (
@@ -160,7 +161,9 @@ const AppRoute = createAppContainer(
             },
           },
           {
-            tabBarComponent: MultiBar,
+            tabBarComponent: props => (
+              <MultiBar {...props} style={{ backgroundColor: '#FFF' }} />
+            ),
             tabBarOptions: {
               activeTintColor: '#4F4F4F',
               inactiveTintColor: '#ddd',
@@ -181,10 +184,16 @@ const AppRoute = createAppContainer(
           title: 'Add User',
         },
       },
+      JobDetails: {
+        screen: JobDetails,
+        navigationOptions: {
+          title: 'Job Details',
+        },
+      },
     },
     {
       defaultNavigationOptions: { ...defaultHeaderObject },
-      initialRouteName: 'SplashScreen',
+      initialRouteName: 'JobDetails',
     }
   )
 );

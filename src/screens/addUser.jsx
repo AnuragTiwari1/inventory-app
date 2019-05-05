@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useRef } from 'react';
 import { View, Picker } from 'react-native';
 import { Form, Button } from 'native-base';
 import { Icon } from 'react-native-elements';
@@ -13,19 +13,27 @@ const PageText = ({ children }) => (
     {children}
   </AppText>
 );
-const PickerContainer = ({ children }) => (
+const PickerContainer = ({ children, leftIcon }) => (
   <View
     style={{
       borderRadius: Theme.spacing.base,
       borderWidth: 0.5,
       borderColor: Theme.gray.dark,
       marginHorizontal: 13,
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      alignItems: 'center',
     }}>
+    <View style={{ marginStart: Theme.spacing.small, flex: 0 }}>
+      {leftIcon}
+    </View>
     {children}
   </View>
 );
 export default () => {
   const emailField = useField('', emailTest);
+  const [userType, setUserType] = useState(0);
+  const emailRef = useRef(React.createRef);
   return (
     <View
       style={{
@@ -44,24 +52,29 @@ export default () => {
           width: '90%',
           alignSelf: 'center',
           height: 200,
-          backgroundColor: 'yellow',
           justifyContent: 'space-between',
         }}>
-        <PickerContainer>
+        <PickerContainer
+          leftIcon={<Icon name="assignment-ind" type="material" size={27} />}>
           <Picker
-            style={{ height: 50, width: '90%' }}
-            onValueChange={(itemValue, itemIndex) =>
-              this.setState({ language: itemValue })
-            }>
-            <Picker.Item label="Java" value="java" />
-            <Picker.Item label="JavaScript" value="js" />
+            selectedValue={userType}
+            style={{ flex: 1, height: 50, marginStart: Theme.spacing.tiny }}
+            onValueChange={itemValue => setUserType(itemValue)}>
+            <Picker.Item label="Super Admin" value={0} />
+            <Picker.Item label="Phase Supervisor" value={1} />
+            <Picker.Item label="line Supervisor" value={2} />
           </Picker>
         </PickerContainer>
         <Field
+          ref={emailRef}
           field={emailField}
           placeholder="Email"
           leftIcon={<Icon name="newsletter" type="entypo" />}
           keyboardType="email-address"
+          onClear={() => {
+            emailRef.current.clear();
+            emailRef.current.focus();
+          }}
         />
       </Form>
       <Button full primary onPress={() => {}}>
