@@ -6430,6 +6430,11 @@ react-native-keyboard-aware-scroll-view@0.8.0:
     prop-types "^15.6.2"
     react-native-iphone-x-helper "^1.0.3"
 
+react-native-maps@^0.24.2:
+  version "0.24.2"
+  resolved "https://registry.yarnpkg.com/react-native-maps/-/react-native-maps-0.24.2.tgz#19974f967cb0c2e24dab74ca879118e0932571b2"
+  integrity sha512-1iNIDikp2dkCG+8DguaEviYZiMSYyvwqYT7pO2YTZvuFRDSc/P9jXMhTUnSh4wNDlEeQ47OJ09l0pwWVBZ7wxg==
+
 react-native-multibar@^0.0.6:
   version "0.0.6"
   resolved "https://registry.yarnpkg.com/react-native-multibar/-/react-native-multibar-0.0.6.tgz#ac96a3d22ed202a42a0cc1eceb75e94354ec4436"

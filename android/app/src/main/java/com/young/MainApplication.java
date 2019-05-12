@@ -4,6 +4,7 @@ import android.app.Application;
 import com.horcrux.svg.SvgPackage;
 import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
 import com.facebook.react.ReactApplication;
+import com.airbnb.android.react.maps.MapsPackage;
 import com.ocetnik.timer.BackgroundTimerPackage;
 import com.reactnativecommunity.asyncstorage.AsyncStoragePackage;
 import com.oblador.vectoricons.VectorIconsPackage;
@@ -31,7 +32,8 @@ public class MainApplication extends Application implements ReactApplication {
             new AsyncStoragePackage(),
             new VectorIconsPackage(),
             new SvgPackage(),
-            new RNGestureHandlerPackage()
+            new RNGestureHandlerPackage(),
+			      new MapsPackage()
       );
     }
 

@@ -15,6 +15,7 @@ import AddUser from './screens/addUser';
 import NewOrder from '../assets/img/addOrder.svg';
 import NewProduct from '../assets/img/manufacture.svg';
 import JobDetails from './screens/jobDetails';
+import Track from './screens/track';
 
 const defaultHeaderObject = {
   header: ({ scene, navigation }) => (
@@ -36,7 +37,7 @@ const getCurrentRoute = navigationState => {
 
   return route;
 };
-
+const prefix = 'mychat://';
 const AppRoute = createAppContainer(
   createStackNavigator(
     {
@@ -136,7 +137,7 @@ const AppRoute = createAppContainer(
               },
             },
             Track: {
-              screen: Landing,
+              screen: Track,
               navigationOptions: {
                 tabBarIcon: ({ tintColor }) => (
                   <Icon
@@ -190,11 +191,18 @@ const AppRoute = createAppContainer(
           title: 'Job Details',
         },
       },
+      GreetInvite: {
+        screen: AddUser,
+        navigationOptions: {
+          title: 'Change Password',
+          path: 'chat/:user',
+        },
+      },
     },
     {
       defaultNavigationOptions: { ...defaultHeaderObject },
-      initialRouteName: 'JobDetails',
+      initialRouteName: 'SplashScreen',
     }
   )
 );
-export default AppRoute;
+export default () => <AppRoute uriPrefix={prefix} />;
