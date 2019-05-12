@@ -1,8 +1,9 @@
 // @flow
 import React, { useRef } from 'react';
-import { View, Image } from 'react-native';
+import { View, Image, StyleSheet } from 'react-native';
 import { Avatar, Icon } from 'react-native-elements';
 import { Form, Button } from 'native-base';
+import LinearGradient from 'react-native-linear-gradient';
 import styles from './styles';
 import useDimension from '../../hooks/useDimension';
 import Profile from '../../../assets/img/engineer.svg';
@@ -12,8 +13,7 @@ import { emailTest, passwordTest } from '../../utils/validation';
 import ValidationFeild from '../../component/validationFeild';
 import useField from '../../hooks/useFeilds';
 import Auth from '../../utils/Auth';
-
-const wave = require('../../../assets/img/wave.png');
+import Truck from '../../../assets/img/delivery-truck-with-circular-clock.svg';
 
 export default props => {
   const { heightPercentageToDP, widthPercentageToDP } = useDimension();
@@ -26,10 +26,25 @@ export default props => {
   const passwordField = useField('', passwordTest);
   return (
     <View style={styles.container}>
-      <Image
-        source={wave}
-        style={{ ...styles.wave, height: widthPercentageToDP(65.55) }}
-      />
+      <LinearGradient
+        colors={['#FAB892', '#F46B54', '#DF4A67']}
+        style={{
+          height: heightPercentageToDP(35.55),
+          width: '100%',
+          justifyContent: 'center',
+          alignItems: 'center',
+          borderBottomLeftRadius: widthPercentageToDP(35),
+        }}>
+        <View style={{ alignItems: 'center' }}>
+          <Truck
+            width={widthPercentageToDP(15)}
+            height={heightPercentageToDP(17)}
+          />
+          <AppText style={{ textAlign: 'center' }}>
+            A complete order and line review{'\n'}at your fingertips
+          </AppText>
+        </View>
+      </LinearGradient>
       <Form
         style={{
           width: '90%',
@@ -39,7 +54,7 @@ export default props => {
         <ValidationFeild
           field={emailField}
           placeholder="Email"
-          leftIcon={<Icon name="newsletter" type="entypo" />}
+          leftIcon={<Icon name="newsletter" type="entypo" color="#DF4A67" />}
           returnKeyType="next"
           keyboardType="email-address"
           ref={emailRef}
@@ -55,7 +70,7 @@ export default props => {
         <ValidationFeild
           field={passwordField}
           placeholder="Password"
-          leftIcon={<Icon name="lock" type="entypo" />}
+          leftIcon={<Icon name="lock" type="entypo" color="#DF4A67" />}
           secureTextEntry
           ref={passwordRef}
           onClear={() => {
@@ -90,18 +105,16 @@ export default props => {
             }
           );
         }}>
-        <AppText>Login</AppText>
+        <LinearGradient
+          colors={['#FAB892', '#F46B54', '#DF4A67']}
+          angle={180}
+          style={[
+            StyleSheet.absoluteFillObject,
+            { justifyContent: 'center', alignItems: 'center' },
+          ]}>
+          <AppText>Login</AppText>
+        </LinearGradient>
       </Button>
-      <Avatar
-        rounded
-        ImageComponent={userProfile}
-        size={widthPercentageToDP(30)}
-        containerStyle={{
-          ...styles.avatar,
-          top: widthPercentageToDP(35),
-          left: '65%',
-        }}
-      />
     </View>
   );
 };

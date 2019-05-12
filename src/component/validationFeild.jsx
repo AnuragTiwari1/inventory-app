@@ -15,7 +15,7 @@ const Field = React.forwardRef((props: propTypes, ref) => {
       containerStyle={{ marginVertical: Theme.spacing.small }}
       inputContainerStyle={{
         borderRadius: Theme.spacing.base,
-        borderWidth: 0.5,
+        borderWidth: 1,
         borderColor: field.error ? Theme.colors.danger : Theme.gray.dark,
       }}
       rightIcon={
