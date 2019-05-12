@@ -4,6 +4,7 @@ import android.app.Application;
 import com.horcrux.svg.SvgPackage;
 import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
 import com.facebook.react.ReactApplication;
+import com.BV.LinearGradient.LinearGradientPackage;
 import com.airbnb.android.react.maps.MapsPackage;
 import com.ocetnik.timer.BackgroundTimerPackage;
 import com.reactnativecommunity.asyncstorage.AsyncStoragePackage;
@@ -28,6 +29,7 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new LinearGradientPackage(),
             new BackgroundTimerPackage(),
             new AsyncStoragePackage(),
             new VectorIconsPackage(),
