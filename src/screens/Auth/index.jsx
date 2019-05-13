@@ -1,9 +1,10 @@
 // @flow
-import React, { useRef } from 'react';
-import { View, Image, StyleSheet } from 'react-native';
-import { Avatar, Icon } from 'react-native-elements';
+import React, { useRef, useState } from 'react';
+import { View, StyleSheet } from 'react-native';
+import { Icon } from 'react-native-elements';
 import { Form, Button } from 'native-base';
 import LinearGradient from 'react-native-linear-gradient';
+import { SkypeIndicator } from 'react-native-indicators';
 import styles from './styles';
 import useDimension from '../../hooks/useDimension';
 import Profile from '../../../assets/img/engineer.svg';
@@ -24,10 +25,14 @@ export default props => {
   const emailRef = useRef(null);
   const emailField = useField('', emailTest);
   const passwordField = useField('', passwordTest);
+  const [loading, setLoading] = useState(false);
   return (
     <View style={styles.container}>
       <LinearGradient
         colors={['#FAB892', '#F46B54', '#DF4A67']}
+        useAngle
+        angle={135 + 90}
+        angleCenter={{ x: 0.5, y: 0.5 }}
         style={{
           height: heightPercentageToDP(35.55),
           width: '100%',
@@ -91,6 +96,7 @@ export default props => {
         full
         primary
         onPress={() => {
+          setLoading(true);
           Promise.all([emailField.validate(), passwordField.validate()]).then(
             ([isEmailValid, isPasswordValid]) => {
               if (isEmailValid && isPasswordValid) {
@@ -101,19 +107,30 @@ export default props => {
                   },
                   () => props.navigation.navigate('Landing')
                 );
-              }
+              } else setLoading(false);
             }
           );
         }}>
         <LinearGradient
           colors={['#FAB892', '#F46B54', '#DF4A67']}
-          angle={180}
+          useAngle
+          angle={135 + 90}
+          angleCenter={{ x: 0.5, y: 0.5 }}
           style={[
             StyleSheet.absoluteFillObject,
             { justifyContent: 'center', alignItems: 'center' },
           ]}>
           <AppText>Login</AppText>
         </LinearGradient>
+        {loading && (
+          <View
+            style={[
+              StyleSheet.absoluteFill,
+              { position: 'absolute', backgroundColor: 'rgba(0,0,0,0.75)' },
+            ]}>
+            <SkypeIndicator color="#F46B54" />
+          </View>
+        )}
       </Button>
     </View>
   );
