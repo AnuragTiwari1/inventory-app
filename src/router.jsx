@@ -64,6 +64,7 @@ const AppRoute = createAppContainer(
                   />
                 ),
                 title: 'Home',
+                headerLeft: () => <Icon name="menu-fold" type="AntDesign" />,
               },
             },
             History: {
@@ -176,7 +177,23 @@ const AppRoute = createAppContainer(
           const route = navRoute && navRoute.routeName;
           const title = route || '';
 
-          return { title };
+          return {
+            title,
+            headerLeft: () => (
+              <Icon
+                name="menu-fold"
+                type="AntDesign"
+                style={{ color: 'white' }}
+              />
+            ),
+            headerRight: () => {
+              <Icon
+                name="menu-fold"
+                type="AntDesign"
+                style={{ color: 'white' }}
+              />;
+            },
+          };
         },
       },
       AddUser: {
@@ -201,7 +218,7 @@ const AppRoute = createAppContainer(
     },
     {
       defaultNavigationOptions: { ...defaultHeaderObject },
-      initialRouteName: 'Auth',
+      initialRouteName: 'Landing',
     }
   )
 );

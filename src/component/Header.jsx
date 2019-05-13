@@ -17,8 +17,10 @@ const styles = StyleSheet.create({
   },
   leftContainer: {
     flex: 1,
-    overflow: 'hidden',
     flexDirection: 'row',
+    height: '100%',
+    alignItems: 'center',
+    paddingStart: '5%',
   },
   titleContainer: {
     flex: 0,
@@ -28,8 +30,10 @@ const styles = StyleSheet.create({
   },
   rightContainer: {
     flex: 1,
-    overflow: 'hidden',
-    flexDirection: 'row-reverse',
+    height: '100%',
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'blue',
   },
 });
 

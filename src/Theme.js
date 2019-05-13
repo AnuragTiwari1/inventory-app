@@ -44,7 +44,7 @@ Theme.gray = {
 };
 
 const colors = {
-  primary: '#0984e3',
+  primary: '#F62459',
   primaryVariant: '#00af60',
   transparentBlack: 'rgba(0,0,0,0.6)',
 
