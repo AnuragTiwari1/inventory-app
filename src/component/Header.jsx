@@ -30,10 +30,8 @@ const styles = StyleSheet.create({
   },
   rightContainer: {
     flex: 1,
+    flexDirection: 'row-reverse',
     height: '100%',
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: 'blue',
   },
 });
 

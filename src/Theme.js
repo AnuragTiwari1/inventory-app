@@ -52,9 +52,9 @@ const colors = {
   danger: '#dc3545',
   warning: '#ffc107',
   info: '#17a2b8',
-  phase1: '#17a2b8',
+  phase1: '#19B5FE',
   phase2: '#ffc107',
-  phase3: '#dc3545',
+  phase3: '#87D37C',
 };
 
 Theme.colors = {

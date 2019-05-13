@@ -55,7 +55,7 @@ const PageFont = props => (
 );
 
 const JobDescription = () => (
-  <Card style={{ width: '90%', alignSelf: 'center' }}>
+  <Card style={{ width: '90%', alignSelf: 'center', marginTop: 40 }}>
     <CardItem header style={{ backgroundColor: Theme.gray.lighter }}>
       <PageFont>Description</PageFont>
     </CardItem>

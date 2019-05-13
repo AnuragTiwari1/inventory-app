@@ -1,6 +1,7 @@
 import React from 'react';
-import { View } from 'react-native';
-import { Card, CardItem, Badge } from 'native-base';
+import { ScrollView, View } from 'react-native';
+import { Avatar, Icon } from 'react-native-elements';
+import Touchable from 'react-native-platform-touchable';
 import AppText from '../common/AppText';
 import Theme from '../Theme';
 
@@ -17,47 +18,79 @@ export const Job = ({
   onPress = () => {},
 }) => {
   return (
-    <Card style={{ flexDirection: 'row', width: '90%' }}>
-      <CardItem
+    <React.Fragment>
+      <Touchable
         style={{
-          flex: 2,
-          flexDirection: 'column',
-          justifyContent: 'space-between',
-          alignItems: 'flex-start',
+          borderTopLeftRadius: 5,
+          borderTopRightRadius: 5,
+          borderWidth: 1,
+          borderColor: '#eee',
+          width: '90%',
+          elevation: 2,
+          padding: '3%',
+          flexDirection: 'row',
+          backgroundColor: 'white',
         }}
-        button
         onPress={onPress}>
-        <PageFont type="header">{header.toUpperCase()}</PageFont>
-        <PageFont>{`Part no: ${partNo.toUpperCase()}`}</PageFont>
-      </CardItem>
-      <CardItem
+        <React.Fragment>
+          <Avatar
+            size="medium"
+            rounded
+            title={`${header.slice(0, 2).toUpperCase()}`}
+            onPress={onPress}
+            activeOpacity={0.7}
+          />
+          <AppText style={{ marginStart: '5%' }}>
+            <PageFont type="header">{`${header}\n`}</PageFont>
+            <AppText type="caption2" style={{ color: Theme.gray.lighter }}>
+              #{partNo}
+            </AppText>
+          </AppText>
+          <View
+            style={{
+              flex: 1,
+              alignItems: 'flex-end',
+              justifyContent: 'space-between',
+            }}>
+            <Icon name="share-google" type="evilicon" />
+            <AppText type="caption3" style={{ color: 'red' }}>
+              DD:23rd may
+            </AppText>
+          </View>
+        </React.Fragment>
+      </Touchable>
+      <View
         style={{
-          flex: 1,
-          justifyContent: 'space-around',
+          width: '90%',
+          height: 50,
+          borderBottomLeftRadius: 5,
+          borderBottomRightRadius: 5,
+          backgroundColor: Theme.colors.primary,
+          marginBottom: 5,
+          flexDirection: 'row',
           alignItems: 'center',
+          justifyContent: 'space-around',
         }}>
-        <JobBadge size="large" phase={phase} />
-        <View
-          style={{
-            height: 64,
-            justifyContent: 'space-between',
-          }}>
-          {Array.isArray(extra) &&
-            extra.length > 0 &&
-            extra.map((e, i) => (
-              <View
-                style={{
-                  flex: 1,
-                  justifyContent: 'center',
-                  alignItems: 'center',
-                }}
-                key={i}>
-                <JobBadge size={i === 0 ? 'base' : 'small'} phase={e.phase} />
-              </View>
-            ))}
-        </View>
-      </CardItem>
-    </Card>
+        <Avatar
+          overlayContainerStyle={{ backgroundColor: Theme.colors.phase1 }}
+          size="small"
+          rounded
+          title="10"
+        />
+        <Avatar
+          overlayContainerStyle={{ backgroundColor: Theme.colors.phase2 }}
+          size="small"
+          rounded
+          title="30"
+        />
+        <Avatar
+          overlayContainerStyle={{ backgroundColor: Theme.colors.phase3 }}
+          size="small"
+          rounded
+          title="80"
+        />
+      </View>
+    </React.Fragment>
   );
 };
 const JobBadge = ({ size, phase }) => {
@@ -93,23 +126,24 @@ const JobBadge = ({ size, phase }) => {
   );
 };
 const Landing = ({ navigation }) => (
-  <View
-    style={{
-      flex: 1,
+  <ScrollView
+    contentContainerStyle={{
+      flexGrow: 1,
       justifyContent: 'flex-start',
       alignItems: 'center',
       paddingVertical: 15,
+      paddingBottom: 50,
     }}>
     <Job
       header="Kirloskar"
-      partNo="qwsdly"
+      partNo="awsdlv"
       phase="1"
       extra={[{ phase: 2 }, { phase: 3 }]}
       onPress={() => navigation.navigate('JobDetails')}
     />
     <Job
       header="Cummines"
-      partNo="rhkfge"
+      partNo="rhkfee"
       phase="2"
       extra={[{ phase: 1 }, { phase: 3 }]}
     />
@@ -121,11 +155,11 @@ const Landing = ({ navigation }) => (
     />
     <Job
       header="escots"
-      partNo="egklpw"
+      partNo="elklow"
       phase="3"
       extra={[{ phase: 2 }, { phase: 1 }]}
     />
-  </View>
+  </ScrollView>
 );
 
 export default Landing;
