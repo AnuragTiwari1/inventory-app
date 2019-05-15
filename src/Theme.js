@@ -55,6 +55,11 @@ const colors = {
   phase1: '#19B5FE',
   phase2: '#ffc107',
   phase3: '#87D37C',
+
+  // linear gradient
+  lg1: '#ff00cc',
+  lg2: '#ff6a00',
+  lg3: '#f8955f',
 };
 
 Theme.colors = {

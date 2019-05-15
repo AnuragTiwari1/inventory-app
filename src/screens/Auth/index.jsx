@@ -1,4 +1,3 @@
-// @flow
 import React, { useRef, useState } from 'react';
 import { View, StyleSheet } from 'react-native';
 import { Icon } from 'react-native-elements';
@@ -15,7 +14,7 @@ import ValidationFeild from '../../component/validationFeild';
 import useField from '../../hooks/useFeilds';
 import Auth from '../../utils/Auth';
 import Truck from '../../../assets/img/delivery-truck-with-circular-clock.svg';
-
+// colors={['#4568DC', '#B06AB3']}
 export default props => {
   const { heightPercentageToDP, widthPercentageToDP } = useDimension();
   const userProfile = () => (
@@ -29,17 +28,30 @@ export default props => {
   return (
     <View style={styles.container}>
       <LinearGradient
-        colors={['#FAB892', '#F46B54', '#DF4A67']}
+        colors={[Theme.colors.lg1, Theme.colors.lg2]}
         useAngle
-        angle={135 + 90}
+        angle={40}
         angleCenter={{ x: 0.5, y: 0.5 }}
         style={{
           height: heightPercentageToDP(35.55),
           width: '100%',
           justifyContent: 'center',
           alignItems: 'center',
-          borderBottomLeftRadius: widthPercentageToDP(35),
         }}>
+        <LinearGradient
+          colors={[Theme.colors.lg1, Theme.colors.lg2]}
+          useAngle
+          angle={40}
+          angleCenter={{ x: 0.5, y: 0.5 }}
+          style={{
+            top: -widthPercentageToDP(34),
+            position: 'absolute',
+            width: '100%',
+            height: widthPercentageToDP(100),
+            borderRadius: widthPercentageToDP(50),
+            transform: [{ scaleX: 2 }],
+          }}
+        />
         <View style={{ alignItems: 'center' }}>
           <Truck
             width={widthPercentageToDP(15)}
@@ -59,7 +71,7 @@ export default props => {
         <ValidationFeild
           field={emailField}
           placeholder="Email"
-          leftIcon={<Icon name="newsletter" type="entypo" color="#DF4A67" />}
+          leftIcon={<Icon name="newsletter" type="entypo" color="#D72638" />}
           returnKeyType="next"
           keyboardType="email-address"
           ref={emailRef}
@@ -75,7 +87,7 @@ export default props => {
         <ValidationFeild
           field={passwordField}
           placeholder="Password"
-          leftIcon={<Icon name="lock" type="entypo" color="#DF4A67" />}
+          leftIcon={<Icon name="lock" type="entypo" color="#D72638" />}
           secureTextEntry
           ref={passwordRef}
           onClear={() => {
@@ -112,9 +124,9 @@ export default props => {
           );
         }}>
         <LinearGradient
-          colors={['#FAB892', '#F46B54', '#DF4A67']}
+          colors={[Theme.colors.lg1, Theme.colors.lg2]}
           useAngle
-          angle={135 + 90}
+          angle={140}
           angleCenter={{ x: 0.5, y: 0.5 }}
           style={[
             StyleSheet.absoluteFillObject,
