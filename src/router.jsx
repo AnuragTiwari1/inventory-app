@@ -218,7 +218,7 @@ const AppRoute = createAppContainer(
     },
     {
       defaultNavigationOptions: { ...defaultHeaderObject },
-      initialRouteName: 'Auth',
+      initialRouteName: 'Landing',
     }
   )
 );

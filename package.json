@@ -27,6 +27,7 @@
     "react-native-indicators": "^0.13.0",
     "react-native-linear-gradient": "^2.5.4",
     "react-native-maps": "^0.24.2",
+    "react-native-motion": "^1.0.4",
     "react-native-multibar": "^0.0.6",
     "react-native-platform-touchable": "^1.1.1",
     "react-native-svg": "^9.3.7",
