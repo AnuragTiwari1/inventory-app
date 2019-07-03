@@ -2,16 +2,13 @@ import React from 'react';
 import { ScrollView, View, FlatList } from 'react-native';
 import { Card, CardItem } from 'native-base';
 import Svg, { Circle, Line, Path, Text } from 'react-native-svg';
-import { SharedElement } from 'react-native-motion';
 import Theme from '../Theme';
 import { Job } from './landing';
 import AppText from '../common/AppText';
 
 export default () => (
   <ScrollView>
-    <SharedElement sourceId="source">
-      <JobCard />
-    </SharedElement>
+    <JobCard />
     <JobDescription />
     <LineChart />
   </ScrollView>

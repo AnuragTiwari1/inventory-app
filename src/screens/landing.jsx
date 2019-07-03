@@ -1,5 +1,4 @@
 import React from 'react';
-import { SharedElement } from 'react-native-motion';
 import { ScrollView, View } from 'react-native';
 import { Avatar, Icon } from 'react-native-elements';
 import Touchable from 'react-native-platform-touchable';
@@ -34,78 +33,76 @@ export const Job = ({
         marginBottom: '5%',
       }}
       onPress={onPress}>
-      <SharedElement id="source">
-        <View style={{ flex: 1 }}>
+      <View style={{ flex: 1 }}>
+        <View
+          style={{
+            flexDirection: 'row',
+            borderBottomColor: Theme.gray.lighter,
+            paddingBottom: '8%',
+            borderBottomWidth: 0.7,
+          }}>
+          <Avatar
+            size="medium"
+            rounded
+            title={`${header.slice(0, 2).toUpperCase()}`}
+            onPress={onPress}
+            overlayContainerStyle={{ backgroundColor: getRandomColor() }}
+            activeOpacity={0.7}
+          />
+          <AppText style={{ marginStart: '5%' }}>
+            <PageFont type="header">{`${header}\n`}</PageFont>
+            <AppText type="caption2" style={{ color: Theme.gray.lighter }}>
+              #{partNo}
+            </AppText>
+          </AppText>
           <View
             style={{
-              flexDirection: 'row',
-              borderBottomColor: Theme.gray.lighter,
-              paddingBottom: '8%',
-              borderBottomWidth: 0.7,
+              flex: 1,
+              alignItems: 'flex-end',
+              justifyContent: 'space-between',
             }}>
-            <Avatar
-              size="medium"
-              rounded
-              title={`${header.slice(0, 2).toUpperCase()}`}
-              onPress={onPress}
-              overlayContainerStyle={{ backgroundColor: getRandomColor() }}
-              activeOpacity={0.7}
-            />
-            <AppText style={{ marginStart: '5%' }}>
-              <PageFont type="header">{`${header}\n`}</PageFont>
-              <AppText type="caption2" style={{ color: Theme.gray.lighter }}>
-                #{partNo}
-              </AppText>
-            </AppText>
-            <View
-              style={{
-                flex: 1,
-                alignItems: 'flex-end',
-                justifyContent: 'space-between',
-              }}>
-              <Icon name="share-google" type="evilicon" />
-              <AppText type="caption3" style={{ color: 'red' }}>
-                DD:23rd may
-              </AppText>
-            </View>
-          </View>
-          <View
-            style={{
-              width: '100%',
-              height: 50,
-              borderBottomLeftRadius: 5,
-              borderBottomRightRadius: 5,
-              flexDirection: 'row',
-              alignItems: 'center',
-              justifyContent: 'space-around',
-            }}>
-            <AppText
-              type="caption2"
-              style={{ color: Theme.gray.dark, textAlign: 'center' }}>
-              {10}
-              <AppText type="caption3" style={{ color: Theme.gray.light }}>
-                {'\n I'}
-              </AppText>
-            </AppText>
-            <AppText
-              type="caption2"
-              style={{ color: Theme.gray.dark, textAlign: 'center' }}>
-              30
-              <AppText type="caption3" style={{ color: Theme.gray.light }}>
-                {'\n II'}
-              </AppText>
-            </AppText>
-            <AppText
-              type="caption2"
-              style={{ color: Theme.gray.dark, textAlign: 'center' }}>
-              60
-              <AppText type="caption3" style={{ color: Theme.gray.light }}>
-                {'\n III'}
-              </AppText>
+            <Icon name="share-google" type="evilicon" />
+            <AppText type="caption3" style={{ color: 'red' }}>
+              DD:23rd may
             </AppText>
           </View>
         </View>
-      </SharedElement>
+        <View
+          style={{
+            width: '100%',
+            height: 50,
+            borderBottomLeftRadius: 5,
+            borderBottomRightRadius: 5,
+            flexDirection: 'row',
+            alignItems: 'center',
+            justifyContent: 'space-around',
+          }}>
+          <AppText
+            type="caption2"
+            style={{ color: Theme.gray.dark, textAlign: 'center' }}>
+            {10}
+            <AppText type="caption3" style={{ color: Theme.gray.light }}>
+              {'\n I'}
+            </AppText>
+          </AppText>
+          <AppText
+            type="caption2"
+            style={{ color: Theme.gray.dark, textAlign: 'center' }}>
+            30
+            <AppText type="caption3" style={{ color: Theme.gray.light }}>
+              {'\n II'}
+            </AppText>
+          </AppText>
+          <AppText
+            type="caption2"
+            style={{ color: Theme.gray.dark, textAlign: 'center' }}>
+            60
+            <AppText type="caption3" style={{ color: Theme.gray.light }}>
+              {'\n III'}
+            </AppText>
+          </AppText>
+        </View>
+      </View>
     </Touchable>
   );
 };

@@ -6,14 +6,11 @@ import {
   createBottomTabNavigator,
 } from 'react-navigation';
 import { Icon } from 'native-base';
-import { MultiBar, MultiBarToggle } from 'react-native-multibar';
 import Header from './component/Header';
 import Auth from './screens/Auth';
 import Splash from './screens/splash';
 import Landing from './screens/landing';
 import AddUser from './screens/addUser';
-import NewOrder from '../assets/img/addOrder.svg';
-import NewProduct from '../assets/img/manufacture.svg';
 import JobDetails from './screens/jobDetails';
 import Track from './screens/track';
 
@@ -37,7 +34,6 @@ const getCurrentRoute = navigationState => {
 
   return route;
 };
-const prefix = 'mychat://';
 const AppRoute = createAppContainer(
   createStackNavigator(
     {
@@ -79,64 +75,6 @@ const AppRoute = createAppContainer(
                 ),
               },
             },
-            MultiBar: {
-              screen: () => null,
-              navigationOptions: ({ navigation }) => ({
-                tabBarIcon: () => (
-                  <MultiBarToggle
-                    navigation={navigation}
-                    actionSize={30}
-                    routes={[
-                      {
-                        routeName: 'AddUser',
-                        color: '#FF8360',
-                        icon: (
-                          <Icon
-                            name="adduser"
-                            type="AntDesign"
-                            style={{ color: '#FFFFFF' }}
-                          />
-                        ),
-                      },
-                      {
-                        routeName: 'AddUser',
-                        color: '#E8E288',
-                        icon: (
-                          <NewOrder
-                            style={{
-                              width: 35,
-                              height: 35,
-                            }}
-                          />
-                        ),
-                      },
-                      {
-                        routeName: 'AddUser',
-                        color: '#7DCE82',
-                        icon: (
-                          <NewProduct
-                            style={{
-                              width: 30,
-                              height: 30,
-                            }}
-                          />
-                        ),
-                      },
-                    ]}
-                    icon={
-                      <Icon
-                        name="plus"
-                        type="AntDesign"
-                        style={{ color: '#FFFFFF' }}
-                      />
-                    }
-                  />
-                ),
-              }),
-              params: {
-                navigationDisabled: true,
-              },
-            },
             Track: {
               screen: Track,
               navigationOptions: {
@@ -163,12 +101,9 @@ const AppRoute = createAppContainer(
             },
           },
           {
-            tabBarComponent: props => (
-              <MultiBar {...props} style={{ backgroundColor: '#FFF' }} />
-            ),
             tabBarOptions: {
               activeTintColor: '#4F4F4F',
-              inactiveTintColor: '#ddd',
+              inactiveTintColor: '#666',
             },
           }
         ),
@@ -186,13 +121,14 @@ const AppRoute = createAppContainer(
                 style={{ color: 'white' }}
               />
             ),
-            headerRight: () => {
+            headerRight: () => (
               <Icon
-                name="menu-fold"
+                name="plus"
                 type="AntDesign"
                 style={{ color: 'white' }}
-              />;
-            },
+                onPress={() => navigation.navigate('AddUser')}
+              />
+            ),
           };
         },
       },
@@ -222,4 +158,4 @@ const AppRoute = createAppContainer(
     }
   )
 );
-export default () => <AppRoute uriPrefix={prefix} />;
+export default () => <AppRoute />;

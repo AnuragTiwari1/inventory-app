@@ -32,6 +32,8 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'row-reverse',
     height: '100%',
+    alignItems: 'center',
+    paddingStart: '5%',
   },
 });
 
@@ -41,9 +43,7 @@ const Header = props => {
   const navigationOptions = scene ? scene.descriptor.options : {};
   const { title, headerLeft, headerRight } = navigationOptions;
   const routeName = '';
-  const routeIndex = scene ? scene.index : 0;
   const { widthPercentageToDP, heightPercentageToDP } = useDimension();
-  console.log('Scene Kya hai>>>>>>>>>>>>>', scene);
 
   return (
     <View

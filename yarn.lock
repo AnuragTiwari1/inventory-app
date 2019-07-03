@@ -6449,11 +6449,6 @@ react-native-motion@^1.0.4:
   dependencies:
     prop-types "^15.5.10"
 
-react-native-multibar@^0.0.6:
-  version "0.0.6"
-  resolved "https://registry.yarnpkg.com/react-native-multibar/-/react-native-multibar-0.0.6.tgz#ac96a3d22ed202a42a0cc1eceb75e94354ec4436"
-  integrity sha512-1QYRfC3qANp80I3wjmBhDG5ku+DwJD+ZZY4Znlc2v+ibqKEatqxDXUdPVE0JptviXzXSjPZc1n8i5ieMaBXP5g==
-
 react-native-platform-touchable@^1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/react-native-platform-touchable/-/react-native-platform-touchable-1.1.1.tgz#fde4acc65eea585d28b164d0c3716a42129a68e4"
