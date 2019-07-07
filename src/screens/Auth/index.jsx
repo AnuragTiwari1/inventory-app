@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react';
 import { View, StyleSheet } from 'react-native';
 import { Icon } from 'react-native-elements';
-import { Form, Button } from 'native-base';
+import { Form, Button, Toast } from 'native-base';
 import LinearGradient from 'react-native-linear-gradient';
 import { SkypeIndicator } from 'react-native-indicators';
 import styles from './styles';
@@ -118,7 +118,17 @@ export default props => {
                     email: emailField.value,
                     password: passwordField.value,
                   },
-                  () => props.navigation.navigate('Landing')
+                  () => props.navigation.navigate('Landing'),
+                  () => {
+                    setLoading(false);
+                    Toast.show({
+                      position: 'top',
+                      type: 'danger',
+                      text: 'Wrong password!',
+                      buttonText: 'Close',
+                      duration: 5000,
+                    });
+                  }
                 );
               } else setLoading(false);
             }

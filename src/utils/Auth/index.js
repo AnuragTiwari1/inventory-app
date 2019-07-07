@@ -10,16 +10,22 @@ type loginOptions = {
   password: string,
 };
 export default class Auth {
-  static login(options: loginOptions, callback: () => void): void {
+  static login(
+    options: loginOptions,
+    callback: () => void,
+    fallback?: () => void
+  ): void {
     axios
       .post(`${BASE_URL}/user/signin`, options)
       .then(res => res.data)
       .then(res => {
-        console.log('after login');
         Auth.setSession(res);
         callback();
       })
-      .catch(Auth.error);
+      .catch(err => {
+        if (typeof fallback === 'function') fallback();
+        Auth.error(err);
+      });
   }
 
   static init = (callback: () => any, fallback: () => any) => {

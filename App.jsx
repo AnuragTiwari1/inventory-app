@@ -8,14 +8,17 @@
 
 import React from 'react';
 import { Provider } from 'react-redux';
+import { Root } from 'native-base';
 import AppRoute from './src/router';
 import store from './src/store';
 
 const App = () => {
   return (
-    <Provider store={store}>
-      <AppRoute />
-    </Provider>
+    <Root>
+      <Provider store={store}>
+        <AppRoute />
+      </Provider>
+    </Root>
   );
 };
 
