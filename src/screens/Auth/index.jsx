@@ -15,11 +15,13 @@ import useField from '../../hooks/useFeilds';
 import Auth from '../../utils/Auth';
 import Truck from '../../../assets/img/delivery-truck-with-circular-clock.svg';
 // colors={['#4568DC', '#B06AB3']}
+// const userProfile = () => (
+//   <Profile width={widthPercentageToDP(30)} height={widthPercentageToDP(30)} />
+// );
+
 export default props => {
   const { heightPercentageToDP, widthPercentageToDP } = useDimension();
-  const userProfile = () => (
-    <Profile width={widthPercentageToDP(30)} height={widthPercentageToDP(30)} />
-  );
+
   const passwordRef = useRef(null);
   const emailRef = useRef(null);
   const emailField = useField('', emailTest);
@@ -33,40 +35,39 @@ export default props => {
         angle={40}
         angleCenter={{ x: 0.5, y: 0.5 }}
         style={{
-          height: heightPercentageToDP(35.55),
+          top: -widthPercentageToDP(30),
           width: '100%',
-          justifyContent: 'center',
+          height: widthPercentageToDP(100),
+          borderRadius: widthPercentageToDP(50),
+          transform: [{ scaleX: 2 }],
           alignItems: 'center',
+          position: 'absolute',
         }}>
-        <LinearGradient
-          colors={[Theme.colors.lg1, Theme.colors.lg2]}
-          useAngle
-          angle={40}
-          angleCenter={{ x: 0.5, y: 0.5 }}
+        <View
           style={{
-            top: -widthPercentageToDP(34),
-            position: 'absolute',
-            width: '100%',
-            height: widthPercentageToDP(100),
-            borderRadius: widthPercentageToDP(50),
-            transform: [{ scaleX: 2 }],
-          }}
-        />
-        <View style={{ alignItems: 'center' }}>
-          <Truck
-            width={widthPercentageToDP(15)}
-            height={heightPercentageToDP(17)}
-          />
-          <AppText style={{ textAlign: 'center' }}>
+            top: '45%',
+            alignItems: 'center',
+            transform: [{ scaleX: 0.5 }],
+          }}>
+          <Truck height={heightPercentageToDP(12)} />
+          <AppText
+            type="title2"
+            style={{
+              textAlign: 'center',
+              letterSpacing: 0.5,
+              marginTop: '2%',
+            }}>
             A complete order and line review{'\n'}at your fingertips
           </AppText>
         </View>
       </LinearGradient>
+
       <Form
         style={{
           width: '90%',
           alignSelf: 'center',
           marginHorizontal: widthPercentageToDP(15),
+          top: widthPercentageToDP(80),
         }}>
         <ValidationFeild
           field={emailField}
@@ -138,12 +139,28 @@ export default props => {
           <View
             style={[
               StyleSheet.absoluteFill,
-              { position: 'absolute', backgroundColor: 'rgba(0,0,0,0.75)' },
-            ]}>
-            <SkypeIndicator color="#F46B54" />
-          </View>
+              {
+                position: 'absolute',
+                backgroundColor: 'rgba(0,0,0,0.75)',
+                top: 0,
+              },
+            ]}
+          />
         )}
       </Button>
+      {loading && (
+        <View
+          style={[
+            StyleSheet.absoluteFill,
+            {
+              position: 'absolute',
+              backgroundColor: 'rgba(0,0,0,0.75)',
+              top: 0,
+            },
+          ]}>
+          <SkypeIndicator color={Theme.colors.lg1} />
+        </View>
+      )}
     </View>
   );
 };
