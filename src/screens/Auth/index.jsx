@@ -4,6 +4,12 @@ import { Icon } from 'react-native-elements';
 import { Form, Button, Toast } from 'native-base';
 import LinearGradient from 'react-native-linear-gradient';
 import { SkypeIndicator } from 'react-native-indicators';
+import Svg, {
+  Ellipse,
+  Defs,
+  LinearGradient as LG,
+  Stop,
+} from 'react-native-svg';
 import styles from './styles';
 import useDimension from '../../hooks/useDimension';
 import AppText from '../../common/AppText';
@@ -24,45 +30,45 @@ export default props => {
   const [loading, setLoading] = useState(false);
   return (
     <View style={styles.container}>
-      <LinearGradient
-        colors={[Theme.colors.lg1, Theme.colors.lg2]}
-        useAngle
-        angle={40}
-        angleCenter={{ x: 0.5, y: 0.5 }}
-        style={{
-          top: -widthPercentageToDP(30),
-          width: '100%',
-          height: widthPercentageToDP(100),
-          borderRadius: widthPercentageToDP(50),
-          transform: [{ scaleX: 2 }],
-          alignItems: 'center',
-          position: 'absolute',
-        }}>
+      <Svg width={widthPercentageToDP(100)} height={heightPercentageToDP(35)}>
+        <Defs>
+          <LG id="grad" x1="0" y1="0" x2={widthPercentageToDP(100)} y2="0">
+            <Stop offset="0" stopColor={Theme.colors.lg1} stopOpacity="1" />
+            <Stop offset="2" stopColor={Theme.colors.lg2} stopOpacity="1" />
+          </LG>
+        </Defs>
+        <Ellipse
+          cx={widthPercentageToDP(50)}
+          cy={heightPercentageToDP(10)}
+          rx={widthPercentageToDP(70)}
+          ry={heightPercentageToDP(25)}
+          fill="url(#grad)"
+        />
         <View
           style={{
-            top: '45%',
             alignItems: 'center',
-            transform: [{ scaleX: 0.5 }],
+            justifyContent: 'center',
+            backgroundColor: 'transparent',
+            top: '25%',
           }}>
-          <Truck height={heightPercentageToDP(12)} />
+          <Truck height={Math.min(heightPercentageToDP(15), 100)} />
           <AppText
-            type="title2"
+            type="title3"
             style={{
               textAlign: 'center',
               letterSpacing: 0.5,
               marginTop: '2%',
             }}>
-            A complete order and line review{'\n'}at your fingertips
+            Shipping and Order Review{'\n'}at your Fingertips
           </AppText>
         </View>
-      </LinearGradient>
+      </Svg>
 
       <Form
         style={{
           width: '90%',
           alignSelf: 'center',
           marginHorizontal: widthPercentageToDP(15),
-          top: widthPercentageToDP(80),
         }}>
         <ValidationFeild
           field={emailField}
