@@ -6,7 +6,6 @@ import LinearGradient from 'react-native-linear-gradient';
 import { SkypeIndicator } from 'react-native-indicators';
 import styles from './styles';
 import useDimension from '../../hooks/useDimension';
-import Profile from '../../../assets/img/engineer.svg';
 import AppText from '../../common/AppText';
 import Theme from '../../Theme';
 import { emailTest, passwordTest } from '../../utils/validation';
@@ -14,10 +13,6 @@ import ValidationFeild from '../../component/validationFeild';
 import useField from '../../hooks/useFeilds';
 import Auth from '../../utils/Auth';
 import Truck from '../../../assets/img/delivery-truck-with-circular-clock.svg';
-// colors={['#4568DC', '#B06AB3']}
-// const userProfile = () => (
-//   <Profile width={widthPercentageToDP(30)} height={widthPercentageToDP(30)} />
-// );
 
 export default props => {
   const { heightPercentageToDP, widthPercentageToDP } = useDimension();
@@ -118,7 +113,10 @@ export default props => {
                     email: emailField.value,
                     password: passwordField.value,
                   },
-                  () => props.navigation.navigate('Landing'),
+                  () => {
+                    setLoading(false);
+                    props.navigation.navigate('Landing');
+                  },
                   () => {
                     setLoading(false);
                     Toast.show({

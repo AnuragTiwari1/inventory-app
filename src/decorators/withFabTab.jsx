@@ -2,7 +2,7 @@
 import React from 'react';
 import { View, Text } from 'react-native';
 
-export default component => {
+export default () => {
   return (
     <View>
       <Text>Hello world</Text>

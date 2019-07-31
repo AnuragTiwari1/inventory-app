@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
 const AppText = (props: PropTypes) => {
   const { children, style, type, ...rest } = props;
 
-  const textStyles = [styles.text, Theme.typography[type], style];
+  const textStyles = [styles.text, type ? Theme.typography[type] : {}, style];
 
   return (
     <Text {...rest} style={textStyles}>

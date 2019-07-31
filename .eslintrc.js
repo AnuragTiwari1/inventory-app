@@ -43,5 +43,7 @@ module.exports = {
         trailingComma: 'es5',
       },
     ],
+    'no-plusplus': 0,
+    'no-useless-escape': 0,
   },
 };

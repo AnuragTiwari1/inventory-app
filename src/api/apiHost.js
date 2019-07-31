@@ -1,7 +1,6 @@
 // @flow
 import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios';
 import asyncStorage from '../utils/asyncStorage';
-import Auth from '../utils/Auth';
 
 export default class ApiHost {
   axios: AxiosInstance;
@@ -66,7 +65,7 @@ export default class ApiHost {
       })
       .then(res => {
         if (res.status === 401) {
-          Auth.login();
+          console.log('login expired');
         }
 
         return res;
